@@ -109,7 +109,7 @@ plot(G_star, main="G Function", legendargs=list(cex=0.6, xpd=TRUE, inset=c(0, 0)
 #We create data from google maps pinpoint
 SMG_TouristSpot = read.csv("D:/My Drive/Kuliah 2/Monograf Spatial/SpatialMonograph/SMG_TouristSpot.csv")
 SMG_TouristSpot = SMG_TouristSpot[,-3]
-SMGtour = st_as_sf(SMG_TouristSpot, wkt = "WKT", crs = 4326)
+SMGtour = st_as_sf(SMG_TouristSpot, wkt = "WKT", crs = 4326)#Change into sf object
 plot(SMGtour, cols=rgb(0,0,0,.2), pch=20, main = "Semarang Tourism Spot")
 SMGtour
 #Create simplest window that is a rectangle to enclose the tourism spots
@@ -148,4 +148,4 @@ SMG_map_win = lapply(v, as.owin)
 library(maptools)
 #Convert to ppp obejct
 ppp_SMG_tour = ppp(SMGtourSP@coords[,1], SMGtourSP@coords[,2], SMG_map_win[[1]])
-plot(ppp_SMG_tour)  
+plot(ppp_SMG_tour)
